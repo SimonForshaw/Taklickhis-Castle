@@ -1,5 +1,6 @@
 import { useState } from "react";
 import _ from "lodash";
+import "./knockKnock.css";
 
 const KnockKnock = ({ change }) => {
   const level1 = [false, false, true, true, true];
@@ -14,15 +15,14 @@ const KnockKnock = ({ change }) => {
 
   const setDoors = () => {
     const doors = _.shuffle(level);
-    return doors.map((door, index) => (
-      <button key={index} onClick={() => doorChoice(door)}>
-        Door {index + 1}
+    return doors.map((door) => (
+      <button className="doors" onClick={() => doorChoice(door)}>
+        <img src="image/Door.png" />
       </button>
     ));
   };
 
   const doorChoice = (door) => {
-    console.log(door);
     if (door && levelNum === 0) {
       setLevel(level2);
       setLevelNum(1);
@@ -48,7 +48,10 @@ const KnockKnock = ({ change }) => {
     <div>
       <h1>Knock Knock</h1>
       <h2>Level {levelNum + 1}</h2>
-      {setDoors()}
+      <div className="knockKnock__WallWithDoors">
+        <img className="wall" src="image/BringOnTheWallV2.png" />
+        {setDoors()}
+      </div>
       <dialog modal>
         <p>{modalMsg}</p>
         <button onClick={() => modal.close()}>Try Again</button>

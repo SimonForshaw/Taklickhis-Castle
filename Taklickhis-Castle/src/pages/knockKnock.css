@@ -1,0 +1,19 @@
+.wall {
+  position: absolute;
+}
+
+.doors {
+  display: flex;
+  z-index: 99;
+  margin: 200px 120px 0px 120px;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.knockKnock__WallWithDoors {
+  display: flex;
+  justify-content: space-around;
+}
